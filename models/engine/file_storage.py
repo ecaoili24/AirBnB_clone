@@ -3,6 +3,8 @@
 Contains the class FileStorage
 """
 
+import json
+
 
 class FileStorage:
     """
@@ -23,4 +25,21 @@ class FileStorage:
         self.__objects[key] = obj
 
     def save(self):
-        """ serializes __objects to the JSON file """
+        """ serializes dict __objects to the JSON file """
+        serial = {}
+        for key in self.__objects:
+            serial[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
+            json.dump(serial, f)
+
+    def reload(self):
+        """ deserializes the JSON file to dict __objects """
+        from models.base_model import BaseModel
+
+        try:
+            with open(self.__file_path, 'r', encoding='utf-8') as f:
+                j_object = json.load(f)
+            for key, val in j_object.items():
+                self.__objects[key] = BaseModel(**val)
+        except:
+            pass

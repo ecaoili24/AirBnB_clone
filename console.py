@@ -8,7 +8,12 @@ import shlex
 from models import storage
 from models.base_model import BaseModel
 from datetime import datetime
-
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     """Class for command interpreter. This is the entry point"""
@@ -63,13 +68,40 @@ class HBNBCommand(cmd.Cmd):
         if flag == 0:
             print("** no instance found **")
 
+    def do_destroy(self, arg):
+        """Deletes an instance based on the class name and id"""
+        if len(arg) == 0:
+            print("** class name missing **")
+            return
+        arg_list = arg.split()
+        try:
+            obj = eval(arg_list[0])()
+        except:
+            print("** class doesn't exist **")
+            return
+        if len(arg_list) == 1:
+            print("** instance id missing **")
+            return
+        flag = 0
+        dict_obj = storage.all()
+        for key, value in dict_obj.items():
+            if key == "{}.{}".format(arg_list[0], arg_list[1]):
+                del dict_obj[key]
+                storage.save()
+                flag = 1
+                break
+        if flag == 0:
+            print("** no instance found **")
+            return
+
     def do_update(self, arg):
         """Updates an instance based on the class name and id"""
         if len(arg) == 0:
             print("** class name missing **")
             return
         arg_list = shlex.split(arg)
-        if arg_list[0] not in ["BaseModel", "User", "State", "City", "Place", "Amenity", "Review"]:
+        if arg_list[0] not in ["BaseModel", "User", "State", "City", "Place",
+                               "Amenity", "Review"]:
             print("** class doesn't exist **")
             return
         if len(arg_list) == 1:

@@ -150,5 +150,42 @@ class HBNBCommand(cmd.Cmd):
                 arg_list[3] = int(arg_list[3])
             setattr(model, arg_list[2], arg_list[3])
 
+    def count(self, arg):
+        count = 0
+        arg_list = arg.split(' ')
+        for key in storage.all():
+            obj_class = storage.all()[key]
+            if arg_list[0] == obj_class.__class__.__name__:
+                count += 1
+        print(count)
+
+    def do_BaseModel(self, arg):
+        if arg == '.count()':
+            self.count('BaseModel')
+
+    def do_User(self, arg):
+        if arg == '.count()':
+            self.count('User')
+
+    def do_State(self, arg):
+        if arg == '.count()':
+            self.count('State')
+
+    def do_City(self, arg):
+        if arg == '.count()':
+            self.count('City')
+
+    def do_Amenity(self, arg):
+        if arg == '.count()':
+            self.count('Amenity')
+
+    def do_Place(self, arg):
+        if arg == '.count()':
+            self.count('Place')
+
+    def do_Review(self, arg):
+        if arg == '.count()':
+            self.count('Review')
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

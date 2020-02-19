@@ -13,6 +13,8 @@ to create a command interpreter that can:
 | Models/Engine | contains the file `file_storage.py` that holds class `FileStorage`
 | Tests | contains all unit tests
 
+---------------------
+
 ### Usage
 
 The following is how the interpreter works in interactive mode.
@@ -26,7 +28,7 @@ The following is how the interpreter works in interactive mode.
 
 Documented commands (type help <topic>):
 ========================================
-EOF  create  help  quit  show  update
+EOF  create  destroy  help  quit  show  update
 ```
 
 `create`: creates a new instance of `BaseModel`, saves it (to the JSON file) and prints the `id`

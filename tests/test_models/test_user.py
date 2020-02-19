@@ -26,11 +26,15 @@ class TestUser(unittest.TestCase):
     def test_attributes(self):
         """ tests attributes and save/update times """
         u1 = User()
+        u1.email = "pepe.python@hbnb.com"
+        u1.password = "pep8"
         u1.first_name = "Pepe"
-        u1.email = "pepe@hbnb.com"
+        u1.last_name = "Python"
 
+        self.assertTrue(u1.email, "pepe.python@hbnb.com")
+        self.assertTrue(u1.password, "pep8")
         self.assertTrue(u1.first_name, "Pepe")
-        self.assertTrue(u1.email, "pepe@hbnb.com")
+        self.assertTrue(u1.last_name, "Python")
 
         created = u1.created_at
         updated = u1.updated_at

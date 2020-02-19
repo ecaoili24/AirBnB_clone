@@ -161,18 +161,26 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def do_BaseModel(self, arg):
+        if arg == '.all()':
+            self.do_all('BaseModel')
         if arg == '.count()':
             self.count('BaseModel')
 
     def do_User(self, arg):
+        if arg == '.all()':
+            self.do_all('User')
         if arg == '.count()':
             self.count('User')
 
     def do_State(self, arg):
+        if arg == '.all()':
+            self.do_all('State')
         if arg == '.count()':
             self.count('State')
 
     def do_City(self, arg):
+        if arg == '.all()':
+            self.do_all('City')
         if arg == '.count()':
             self.count('City')
 
@@ -181,10 +189,14 @@ class HBNBCommand(cmd.Cmd):
             self.count('Amenity')
 
     def do_Place(self, arg):
+        if arg == '.all()':
+            self.do_all('Place')
         if arg == '.count()':
             self.count('Place')
 
     def do_Review(self, arg):
+        if arg == '.all()':
+            self.do_all('Review')
         if arg == '.count()':
             self.count('Review')
 

@@ -24,26 +24,12 @@ class TestUser(unittest.TestCase):
         self.assertNotEqual(u1.id, u2.id)
 
     def test_attributes(self):
-        """ tests attributes and save/update times """
+        """ tests attributes to make sure they are string """
         u1 = User()
-        u1.email = "pepe.python@hbnb.com"
-        u1.password = "pep8"
-        u1.first_name = "Pepe"
-        u1.last_name = "Python"
-
-        self.assertTrue(u1.email, "pepe.python@hbnb.com")
-        self.assertTrue(u1.password, "pep8")
-        self.assertTrue(u1.first_name, "Pepe")
-        self.assertTrue(u1.last_name, "Python")
-
-        created = u1.created_at
-        updated = u1.updated_at
-        u1.save()
-        created2 = u1.created_at
-        updated2 = u1.updated_at
-
-        self.assertEqual(created, created2)
-        self.assertNotEqual(updated, updated2)
+        self.assertIsInstance(u1.email, str)
+        self.assertIsInstance(u1.password, str)
+        self.assertIsInstance(u1.first_name, str)
+        self.assertIsInstance(u1.last_name, str)
 
     def test_str(self):
         """ test to check the string representation """

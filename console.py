@@ -186,7 +186,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_Amenity(self, arg):
         if arg == '.all()':
-            seld.do_all('Amenity')
+            self.do_all('Amenity')
         if arg == '.count()':
             self.count('Amenity')
 

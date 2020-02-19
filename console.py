@@ -151,6 +151,7 @@ class HBNBCommand(cmd.Cmd):
             setattr(model, arg_list[2], arg_list[3])
 
     def count(self, arg):
+        """ Counts number of instances in a class """
         count = 0
         arg_list = arg.split(' ')
         for key in storage.all():

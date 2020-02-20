@@ -1,7 +1,7 @@
 # The Console: 0x00. AirBnB clone
 
-This project is the first step of the AirBnB clone. The goal of the project was
-to create a command interpreter that can:
+This project is the first step of the AirBnB clone. The goal of the project was to develop an
+understanding of JSON serialization/deserialization, and also create a command interpreter that can:
 >	- create a new object (eg. a new User or a new Place)
 >	- retrieve an object from a file
 >	- update attributes of an object
@@ -28,7 +28,7 @@ The following is how the interpreter works in interactive mode.
 
 Documented commands (type help <topic>):
 ========================================
-EOF  create  destroy  help  quit  show  update
+EOF  all  create  destroy  help  quit  show  update
 ```
 
 It should work like this in non-interactive mode.

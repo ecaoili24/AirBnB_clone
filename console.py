@@ -223,7 +223,7 @@ class HBNBCommand(cmd.Cmd):
             str_pos1 = arg[idx_1:]
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
-            self.do_show("BaseModel {}".format(id_str))
+            self.do_show("Amenity {}".format(id_str))
 
     def do_Place(self, arg):
         """ all, instance count, and show functions """

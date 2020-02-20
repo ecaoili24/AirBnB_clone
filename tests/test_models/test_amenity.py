@@ -27,7 +27,7 @@ class TestAmenity(unittest.TestCase):
         """ tests attributes """
         a1 = Amenity()
         a1.name = "Bedroom"
-        self.assertIsInstance(a1, string)
+        self.assertIsInstance(a1.name, str)
 
     def test_str(self):
         """ test to check the string representation """

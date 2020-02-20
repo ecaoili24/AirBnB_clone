@@ -4,7 +4,7 @@ Test module for the class Place
 """
 from datetime import datetime
 from models.place import Place
-import uniitest
+import unittest
 
 
 class TestPlace(unittest.TestCase):

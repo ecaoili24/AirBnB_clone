@@ -59,3 +59,20 @@ class TestBaseModel(unittest.TestCase):
         updated2 = datetime.strptime(m1_json["updated_at"],
                                      "%Y-%m-%dT%H:%M:%S.%f")
         self.assertEqual(updated, updated2)
+
+    def test_invalid_arg_BaseModel(self):
+        """ tests exception thrown when arg passed to BaseModel """
+        with self.assertRaises(NameError) as E:
+            m1 = BaseModel(hola)
+        self.assertEqual(str(E.exception), "name 'hola' is not defined")
+
+    def test_args_save(self):
+        """ tests exception thrown when arg passed to save() """
+        with self.assertRaises(TypeError) as E:
+            m1 = BaseModel()
+            m1.save("pizza")
+        self.assertEqual(str(E.exception), "save() takes 1 positional" +
+                                           " argument but 2 were given")
+
+if __name__ == "__main__":
+    unittest.main()

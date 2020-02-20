@@ -6,7 +6,7 @@ to create a command interpreter that can:
 >	- retrieve an object from a file
 >	- update attributes of an object
 >	- destroy an object
-	
+
 | Directory | Description |
 |--|--|
 | Models | contains all the classes used (eg. `BaseModel`, `User`, `City`, etc.)
@@ -29,6 +29,19 @@ The following is how the interpreter works in interactive mode.
 Documented commands (type help <topic>):
 ========================================
 EOF  create  destroy  help  quit  show  update
+```
+
+It should work like this in non-interactive mode.
+
+```bash
+$ echo "help" | ./console.py
+(hbnb)
+Documented commands (type help <topic>):
+========================================
+EOF  all  count  create  destroy  help  quit  show  update
+
+(hbnb)
+$
 ```
 
 `create`: creates a new instance of `BaseModel`, saves it (to the JSON file) and prints the `id`
@@ -69,3 +82,6 @@ EOF  create  destroy  help  quit  show  update
 (hbnb) quit
 ~/AirBnb_clone$  # successfully exited the interpreter
 ```
+## Authors
+[Ariana Bibiano] (https://github.com/ariana124)
+[Erika Caoili] (http://github.com/ecaoili24)

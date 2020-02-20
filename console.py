@@ -161,7 +161,7 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def do_BaseModel(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('BaseModel')
         if arg == '.count()':
@@ -194,7 +194,7 @@ class HBNBCommand(cmd.Cmd):
             self.do_update("BaseModel {} {} {}".format(id_str, key, value))
 
     def do_User(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('User')
         if arg == '.count()':
@@ -205,9 +205,29 @@ class HBNBCommand(cmd.Cmd):
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
             self.do_show("User {}".format(id_str))
+        if arg.startswith('.update(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            key = str_pos1[:idx_1]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            value = str_pos1[:idx_1]
+            self.do_update("User {} {} {}".format(id_str, key, value))
 
     def do_State(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('State')
         if arg == '.count()':
@@ -218,9 +238,29 @@ class HBNBCommand(cmd.Cmd):
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
             self.do_show("State {}".format(id_str))
+        if arg.startswith('.update(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            key = str_pos1[:idx_1]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            value = str_pos1[:idx_1]
+            self.do_update("State {} {} {}".format(id_str, key, value))
 
     def do_City(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('City')
         if arg == '.count()':
@@ -231,9 +271,29 @@ class HBNBCommand(cmd.Cmd):
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
             self.do_show("City {}".format(id_str))
+        if arg.startswith('.update(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            key = str_pos1[:idx_1]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            value = str_pos1[:idx_1]
+            self.do_update("City {} {} {}".format(id_str, key, value))
 
     def do_Amenity(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('Amenity')
         if arg == '.count()':
@@ -244,9 +304,29 @@ class HBNBCommand(cmd.Cmd):
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
             self.do_show("Amenity {}".format(id_str))
+        if arg.startswith('.update(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            key = str_pos1[:idx_1]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            value = str_pos1[:idx_1]
+            self.do_update("Amenity {} {} {}".format(id_str, key, value))
 
     def do_Place(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('Place')
         if arg == '.count()':
@@ -257,9 +337,29 @@ class HBNBCommand(cmd.Cmd):
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
             self.do_show("Place {}".format(id_str))
+        if arg.startswith('.update(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            key = str_pos1[:idx_1]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            value = str_pos1[:idx_1]
+            self.do_update("Place {} {} {}".format(id_str, key, value))
 
     def do_Review(self, arg):
-        """ all, instance count, and show functions """
+        """ all, instance count, show, and update functions """
         if arg == '.all()':
             self.do_all('Review')
         if arg == '.count()':
@@ -270,6 +370,26 @@ class HBNBCommand(cmd.Cmd):
             idx_2 = str_pos1.index('"')
             id_str = str_pos1[:idx_2]
             self.do_show("Review {}".format(id_str))
+        if arg.startswith('.update(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            key = str_pos1[:idx_1]
+
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"') + 1
+            str_pos1 = str_pos1[idx_1:]
+            idx_1 = str_pos1.index('"')
+            value = str_pos1[:idx_1]
+            self.do_update("Review {} {} {}".format(id_str, key, value))
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

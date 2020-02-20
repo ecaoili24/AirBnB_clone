@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Test module for the class City
+Test module for the class State
 """
 from datetime import datetime
 from models.state import State
@@ -21,16 +21,15 @@ class TestState(unittest.TestCase):
         """ tests to make sure both instances have different ids """
         s1 = State()
         s2 = State()
-        self.assertNotEqual(c1.id, c2.id)
+        self.assertNotEqual(s1.id, s2.id)
 
     def test_attributes(self):
         """ tests attributes and save/update times """
         s1 = State()
         s1.name = "California"
-        s1.state_id = 24
 
         self.assertTrue(s1.name, "California")
-        self.assertTrue(s1.state_id, 24)
+        self.assertIsInstance(s1.name, str)
 
         created = s1.created_at
         updated = s1.updated_at

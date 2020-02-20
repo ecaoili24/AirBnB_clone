@@ -24,22 +24,10 @@ class TestCity(unittest.TestCase):
         self.assertNotEqual(c1.id, c2.id)
 
     def test_attributes(self):
-        """ tests attributes and save/update times """
+        """ tests attributes """
         c1 = City()
-        c1.name = "San Francisco"
-        c1.state_id = 24
-
-        self.assertTrue(c1.name, "San Francisco")
-        self.assertTrue(c1.state_id, 24)
-
-        created = c1.created_at
-        updated = c1.updated_at
-        c1.save()
-        created2 = c1.created_at
-        updated2 = c1.updated_at
-
-        self.assertEqual(created, created2)
-        self.assertNotEqual(updated, updated2)
+        self.assertIsInstance(c1.state_id, str)
+        self.assertIsInstance(c1.name, str)
 
     def test_str(self):
         """ test to check the string representation """

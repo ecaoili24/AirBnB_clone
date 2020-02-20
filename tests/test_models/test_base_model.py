@@ -2,6 +2,7 @@
 """
 Test module for the class BaseModel
 """
+import models
 from datetime import datetime
 from models.base_model import BaseModel
 import unittest

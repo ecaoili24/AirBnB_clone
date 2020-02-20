@@ -12,11 +12,11 @@ class TestPlace(unittest.TestCase):
 
     def setUp(self):
         """ sets up an instance of a Place """
-        self.place = Place
+        self.p1 = Place()
 
     def tearDown(self):
         """ tears down an instance of a Place """
-        del self.place
+        del self.p1
 
     def test_pep8(self):
         """ tests files to pep8 standard """
@@ -27,55 +27,50 @@ class TestPlace(unittest.TestCase):
 
     def test_diff_id(self):
         """ tests to make sure both instances have different ids """
-        p1 = Place()
         p2 = Place()
-        self.assertNotEqual(p1.id, p2.id)
+        self.assertNotEqual(self.p1.id, p2.id)
 
     def test_attributes(self):
         """ tests attributes to make sure they are strings/integers/floats """
-        p1 = Place()
-        self.assertIsInstance(p1.city_id, str)
-        self.assertIsInstance(p1.user_id, str)
-        self.assertIsInstance(p1.name, str)
-        self.assertIsInstance(p1.description, str)
-        self.assertIsInstance(p1.number_rooms, int)
-        self.assertIsInstance(p1.number_bathrooms, int)
-        self.assertIsInstance(p1.max_guest, int)
-        self.assertIsInstance(p1.price_by_night, int)
-        self.assertIsInstance(p1.latitude, float)
-        self.assertIsInstance(p1.longitude, float)
-        self.assertIsInstance(p1.amenity_ids, str)
+        self.assertIsInstance(self.p1.city_id, str)
+        self.assertIsInstance(self.p1.user_id, str)
+        self.assertIsInstance(self.p1.name, str)
+        self.assertIsInstance(self.p1.description, str)
+        self.assertIsInstance(self.p1.number_rooms, int)
+        self.assertIsInstance(self.p1.number_bathrooms, int)
+        self.assertIsInstance(self.p1.max_guest, int)
+        self.assertIsInstance(self.p1.price_by_night, int)
+        self.assertIsInstance(self.p1.latitude, float)
+        self.assertIsInstance(self.p1.longitude, float)
+        self.assertIsInstance(self.p1.amenity_ids, str)
 
     def test_has_attr(self):
         """ test to make sure class has attributes """
-        p1 = Place()
-        self.assertTrue(hasattr(p1, "city_id"))
-        self.assertTrue(hasattr(p1, "user_id"))
-        self.assertTrue(hasattr(p1, "name"))
-        self.assertTrue(hasattr(p1, "description"))
-        self.assertTrue(hasattr(p1, "number_rooms"))
-        self.assertTrue(hasattr(p1, "number_bathrooms"))
-        self.assertTrue(hasattr(p1, "max_guest"))
-        self.assertTrue(hasattr(p1, "price_by_night"))
-        self.assertTrue(hasattr(p1, "latitude"))
-        self.assertTrue(hasattr(p1, "longitude"))
-        self.assertTrue(hasattr(p1, "amenity_ids"))
+        self.assertTrue(hasattr(self.p1, "city_id"))
+        self.assertTrue(hasattr(self.p1, "user_id"))
+        self.assertTrue(hasattr(self.p1, "name"))
+        self.assertTrue(hasattr(self.p1, "description"))
+        self.assertTrue(hasattr(self.p1, "number_rooms"))
+        self.assertTrue(hasattr(self.p1, "number_bathrooms"))
+        self.assertTrue(hasattr(self.p1, "max_guest"))
+        self.assertTrue(hasattr(self.p1, "price_by_night"))
+        self.assertTrue(hasattr(self.p1, "latitude"))
+        self.assertTrue(hasattr(self.p1, "longitude"))
+        self.assertTrue(hasattr(self.p1, "amenity_ids"))
 
     def test_str(self):
         """ test to check the string representation """
-        p1 = Place()
-        p1.name = "US"
-        string = "[{}] ({}) {}".format(p1.__class__.__name__,
-                                       p1.id,
-                                       p1.__dict__)
-        self.assertEqual(str(p1), string)
+        self.p1.name = "US"
+        string = "[{}] ({}) {}".format(self.p1.__class__.__name__,
+                                       self.p1.id,
+                                       self.p1.__dict__)
+        self.assertEqual(str(self.p1), string)
 
     def test_format(self):
         """ test to check for time format """
-        p1 = Place()
-        p1.save()
-        p1_json = p1.to_dict()
-        updated = p1.updated_at
+        self.p1.save()
+        p1_json = self.p1.to_dict()
+        updated = self.p1.updated_at
         updated2 = datetime.strptime(p1_json["updated_at"],
                                      "%Y-%m-%dT%H:%M:%S.%f")
         self.assertEqual(updated, updated2)

@@ -28,15 +28,10 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
-    def test_attributes(self):
-        """ test attributes """
-        pass
-
     def test_all(self):
         """ tests all method """
         storage.reload()
         self.assertIsInstance(self.f1.all(), dict)
-
 
     def test_new(self):
         """ tests new method """

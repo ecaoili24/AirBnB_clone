@@ -12,11 +12,11 @@ class TestReview(unittest.TestCase):
 
     def setUp(self):
         """ sets up an instance of a Review """
-        self.review = Review()
+        self.r1 = Review()
 
     def tearDown(self):
         """ tears down an instance of a Review """
-        del self.review
+        del self.r1
 
     def test_pep8(self):
         """ tests files to pep8 standard """
@@ -27,35 +27,31 @@ class TestReview(unittest.TestCase):
 
     def test_diff_id(self):
         """ tests to make sure both instances have different ids """
-        r1 = Review()
         r2 = Review()
-        self.assertNotEqual(r1.id, r2.id)
+        self.assertNotEqual(self.r1.id, r2.id)
 
     def test_attributes(self):
         """ tests attributes """
-        r1 = Review()
-        self.assertTrue(hasattr(r1, "place_id"))
-        self.assertTrue(hasattr(r1, "user_id"))
-        self.assertTrue(hasattr(r1, "text"))
-        self.assertIsInstance(r1.place_id, str)
-        self.assertIsInstance(r1.user_id, str)
-        self.assertIsInstance(r1.text, str)
+        self.assertTrue(hasattr(self.r1, "place_id"))
+        self.assertTrue(hasattr(self.r1, "user_id"))
+        self.assertTrue(hasattr(self.r1, "text"))
+        self.assertIsInstance(self.r1.place_id, str)
+        self.assertIsInstance(self.r1.user_id, str)
+        self.assertIsInstance(self.r1.text, str)
 
     def test_str(self):
         """ test to check the string representation """
-        r1 = Review()
-        r1.name = "5 Stars"
-        string = "[{}] ({}) {}".format(r1.__class__.__name__,
-                                       r1.id,
-                                       r1.__dict__)
-        self.assertEqual(str(r1), string)
+        self.r1.name = "5 Stars"
+        string = "[{}] ({}) {}".format(self.r1.__class__.__name__,
+                                       self.r1.id,
+                                       self.r1.__dict__)
+        self.assertEqual(str(self.r1), string)
 
     def test_format(self):
         """ test to check for time format """
-        r1 = Review()
-        r1.save()
-        r1_json = r1.to_dict()
-        updated = r1.updated_at
+        self.r1.save()
+        r1_json = self.r1.to_dict()
+        updated = self.r1.updated_at
         updated2 = datetime.strptime(r1_json["updated_at"],
                                      "%Y-%m-%dT%H:%M:%S.%f")
         self.assertEqual(updated, updated2)

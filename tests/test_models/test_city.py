@@ -5,6 +5,7 @@ Test module for the class City
 from datetime import datetime
 from models.city import City
 import unittest
+import pep8
 
 
 class TestCity(unittest.TestCase):
@@ -17,6 +18,13 @@ class TestCity(unittest.TestCase):
         """ tears down an instance of a City """
         del self.city
 
+    def test_pep8(self):
+        """ tests files to pep8 standard """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/review.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
     def test_diff_id(self):
         """ tests to make sure both instances have different ids """
         c1 = City()
@@ -26,6 +34,8 @@ class TestCity(unittest.TestCase):
     def test_attributes(self):
         """ tests attributes """
         c1 = City()
+        self.assertTrue(hasattr(c1, "state_id"))
+        self.assertTrue(hasattr(c1, "name"))
         self.assertIsInstance(c1.state_id, str)
         self.assertIsInstance(c1.name, str)
 

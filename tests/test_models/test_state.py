@@ -5,6 +5,7 @@ Test module for the class State
 from datetime import datetime
 from models.state import State
 import unittest
+import pep8
 
 
 class TestState(unittest.TestCase):
@@ -17,6 +18,13 @@ class TestState(unittest.TestCase):
         """ tears down an instance of a State """
         del self.state
 
+    def test_pep8(self):
+        """ tests files to pep8 standard """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/review.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
     def test_diff_id(self):
         """ tests to make sure both instances have different ids """
         s1 = State()
@@ -28,7 +36,7 @@ class TestState(unittest.TestCase):
         s1 = State()
         s1.name = "California"
 
-        self.assertTrue(s1.name, "California")
+        self.assertTrue(hasattr(s1, "name"))
         self.assertIsInstance(s1.name, str)
 
         created = s1.created_at

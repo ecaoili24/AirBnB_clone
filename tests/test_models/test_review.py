@@ -3,6 +3,7 @@
 Test module for the class Review
 """
 from datetime import datetime
+import pep8
 from models.review import Review
 import unittest
 
@@ -17,6 +18,13 @@ class TestReview(unittest.TestCase):
         """ tears down an instance of a Review """
         del self.review
 
+    def test_pep8(self):
+        """ tests files to pep8 standard """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/review.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
     def test_diff_id(self):
         """ tests to make sure both instances have different ids """
         r1 = Review()
@@ -26,6 +34,9 @@ class TestReview(unittest.TestCase):
     def test_attributes(self):
         """ tests attributes """
         r1 = Review()
+        self.assertTrue(hasattr(r1, "place_id"))
+        self.assertTrue(hasattr(r1, "user_id"))
+        self.assertTrue(hasattr(r1, "text"))
         self.assertIsInstance(r1.place_id, str)
         self.assertIsInstance(r1.user_id, str)
         self.assertIsInstance(r1.text, str)

@@ -5,6 +5,7 @@ Test module for the class Amenity
 from datetime import datetime
 from models.amenity import Amenity
 import unittest
+import pep8
 
 
 class TestAmenity(unittest.TestCase):
@@ -17,6 +18,13 @@ class TestAmenity(unittest.TestCase):
         """ tears down an instance of an Amenity """
         del self.amenity
 
+    def test_pep8(self):
+        """ tests files to pep8 standard """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/review.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
+
     def test_diff_id(self):
         """ tests to make sure both instances have different ids """
         a1 = Amenity()
@@ -27,6 +35,7 @@ class TestAmenity(unittest.TestCase):
         """ tests attributes """
         a1 = Amenity()
         a1.name = "Bedroom"
+        self.assertTrue(hasattr(a1, "name"))
         self.assertIsInstance(a1.name, str)
 
     def test_str(self):

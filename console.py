@@ -52,13 +52,13 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) < 2:
             print("** class name missing **")
             return
-        arg_list = arg.split()
+        arg_list = shlex.split(arg)
         try:
             obj = eval(arg_list[0])()
         except:
             print("** class doesn't exist **")
             return
-        if len(arg_list) == 1:
+        if len(arg_list) < 2:
             print("** instance id missing **")
             return
         flag = 0
@@ -161,10 +161,23 @@ class HBNBCommand(cmd.Cmd):
         print(count)
 
     def do_BaseModel(self, arg):
+        """ all, count, show, and destory functions """
         if arg == '.all()':
             self.do_all('BaseModel')
         if arg == '.count()':
             self.count('BaseModel')
+        if arg.startswith('.show(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+            self.do_show("BaseModel {}".format(id_str))
+        if arg.startswith('.destroy(') is True:
+            idx_1 = arg.index('"') + 1
+            str_pos1 = arg[idx_1:]
+            idx_2 = str_pos1.index('"')
+            id_str = str_pos1[:idx_2]
+            self.do_destroy("BaseModel {}".format(id_str))
 
     def do_User(self, arg):
         if arg == '.all()':

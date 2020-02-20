@@ -83,5 +83,5 @@ $
 ~/AirBnb_clone$  # successfully exited the interpreter
 ```
 ## Authors
-[Ariana Bibiano] (https://github.com/ariana124)
-[Erika Caoili] (http://github.com/ecaoili24)
+[Ariana Bibiano](https://github.com/ariana124)
+[Erika Caoili](http://github.com/ecaoili24)

@@ -1,4 +1,4 @@
-# AirBnB project
+# AirBnB clone - Web static
 
 ## Learning Objectives
 

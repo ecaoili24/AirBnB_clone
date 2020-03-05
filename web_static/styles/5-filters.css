@@ -25,9 +25,11 @@ button {
     height: 100%;
     width: 25%;
     padding-left: 30px;
+    margin-bottom: 20;
 }
 .locations {
     border-right: 1px #DDDDDD solid;
+    margin-bottom: 20;
 }
 .locations h3,
 .amenities h3 {

@@ -1,8 +1,17 @@
+.places h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+}
+article h2 {
+    text-align: center;
+    padding: 0;
+}
 .places article {
     width: 390px;
     padding: 20px;
     margin: 20px;
-    border: 1px #ff5a5f solid;
+    border: 1px solid #ff5a5f;
     border-radius: 4px;
 }
 .flex_container {
@@ -10,10 +19,4 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-}
-.places h1 {
-    font-size: 30px;
-}
-article h2 {
-    text-align: center;
 }

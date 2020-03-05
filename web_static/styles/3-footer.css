@@ -1,9 +1,10 @@
 footer {
-    position: absolute;
-    bottom: 0; 
-    background-color: white;
-    line-height: 60px;
-    width: 100%;
-    border-top: 1px #cccccc solid;
-    text-align: center;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  height: 60px;
+  line-height: 60px;
+  width: 100%;
+  border-top: 1px #cccccc solid;
+  text-align: center;
 }
